@@ -12,6 +12,10 @@
       <div id="food-item" v-for="food in foods" :key="food.name">
         <p>{{ food.name }} -- {{ food.description }}</p>
         <img :src="food.src" width="100" height="100">
+
+        <p v-if="food.perc_carbs > 80">This food is made mostrly of carbohidrates.</p>
+        <p v-else-if="food.perc_carbs == 80">This food has enough carbohidrates.</p>
+        <p v-else>Look for carbohidrates somewhere else. </p>
       </div>
     </div>
 
