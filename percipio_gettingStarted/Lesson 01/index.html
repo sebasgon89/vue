@@ -9,9 +9,9 @@
       <h2>{{ subtitle }}</h2>
     
 
-      <div id="apple">
-        <p>{{ food[0].name }} -- {{ food[0].description }}</p>
-        <img :src="food[0].src">
+      <div id="food-item" v-for="food in foods" :key="food.name">
+        <p>{{ food.name }} -- {{ food.description }}</p>
+        <img :src="food.src" width="100" height="100">
       </div>
     </div>
 
