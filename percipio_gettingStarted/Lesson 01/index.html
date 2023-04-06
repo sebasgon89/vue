@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="lodash.js"></script>
   </head>
   <body>
     <div id="the_food_app">
       <h1>{{ title }}</h1>
       <h2>{{ subtitle }}</h2>
-    
+      <h3>Favorites: {{ favorites }}</h3>
 
       <div class="food-item" v-for="food in foods" :key="food.name">
         <div class="food-title-container">
           <span class="food-title">{{ food.name }} -- {{ food.description }}</span>
-          <span v-on:click="food.is_fav=false" v-show="food.is_fav" class="fav"><i class="fa fa-star "></i></span>
-          <span v-on:click="food.is_fav=true" v-show="!food.is_fav" class="fav"><i class="fa fa-star-o "></i></span>
+          <span v-on:click="updateFavorites(food.name, false)" v-show="food.is_fav" class="fav"><i class="fa fa-star "></i></span>
+          <span v-on:click="updateFavorites(food.name, true)" v-show="!food.is_fav" class="fav"><i class="fa fa-star-o "></i></span>
         
         </div>
         <img :src="food.src" width="100" height="100" @mouseover="console.log('Over the food image $(food.name)')">
